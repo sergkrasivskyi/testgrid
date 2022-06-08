@@ -1,0 +1,171 @@
+p {
+    margin: 0;
+    padding: 0;
+}
+body{
+    /* max-height:; */
+}
+/* .grid { */
+/* display: grid; */
+/* color: blueviolet; */
+/* font-size: 36px; */
+/* background-color: greenyellow; */
+/* margin: 50px 20px; */
+/* } */
+/* .grid__body { */
+/* display: grid; */
+/* * оператор minmax(100px, 1fr) - задає мінімальну та максимальну величину колонки або рядка
+    * Не можемо вкаазати у першому параметрі fr , а у другому можемо*/
+/* grid-template-columns: 200px minmax(100px, 1fr) 200px; */
+/* grid-template-rows: 1fr 1fr; */
+/* } */
+/* .grid__body { */
+/* display: grid; */
+/* grid-template-columns: auto 1fr auto; */
+/* grid-template-rows: 1fr 1fr; */
+/* } */
+
+/* .grid__body { */
+/* display: grid; */
+/* * оператор fit-content() - примусово вміщує контент у той розмір, що вказано у параметрі, fr не вказуємо 
+     grid-template-columns: fit-content(20%) 1fr auto;*/
+/* grid-template-rows: 1fr 1fr; */
+/* } */
+/* *оператор repeat(a,b)
+/* * a - вказує на кількість колонок, b вказує розмір колонки */
+/* .grid__body { */
+/* display: grid; */
+/* background-color: chartreuse; */
+/* grid-template-columns: repeat(3, 1fr); */
+/* grid-template-rows: repeat(3, 100px); */
+/* } */
+/*  */
+/* .grid__item { */
+/* color: blue; */
+/* text-align: center; */
+/* background-color: yellow; */
+/* border: 2px dashed red; */
+/* } */
+
+/* .grid-inline { */
+/* display: inline-grid; */
+/* background-color: green; */
+/* font-size: 36px; */
+/* color: violet; */
+/* margin: 50px 20px; */
+/* } */
+/* .anothergrid { */
+/* } */
+
+/* * потренуємося з макетом сайту */
+.grid-header .grid-side .grid-content {
+    padding: 30px;
+    border: 1px dashed green;
+    margin: 0 0 15px 0;
+}
+
+.grid-wrapper {
+    max-height: 3000px;
+    margin-top: 100px;
+    font-size: 30px;
+    color: blue;
+    background-color: coral;
+    border: 5px dashed red;
+
+    display: grid;
+    /* *Окремо записуємо для  рядів (строк) rows та колонок columns*/
+    /* grid-template-rows: 10% 80% 10%; */
+    /* grid-template-columns: 150px 1fr; */
+    /* * Загальна форма запису для grid */
+    /* * Спочатку вказуємо для рядів, потім для колонок*/
+
+    /* todo: grid-template: repeat(3, 1fr) / repeat(2, 1fr) ; */
+    /* __________________________________ */
+
+    /* * Ще один спосіб запису - відразу схемою */
+    grid-template:
+        [start] "header header" 10% [row2]
+        [row2] "side content" 80% [row3]
+        [row3] "footer footer" 10% [row-end] / 1fr 4fr;
+
+    /* __________________________________________ */
+    /* grid-template-areas: */
+    /* "header header" */
+    /* "side content" */
+    /* "footer footer"; */
+}
+
+.grid-header {
+    grid-area: header;
+    border: 1px dashed black;
+    background-color: yellow;
+}
+.grid-side {
+    grid-area: side;
+    border: 1px dashed blue;
+    background-color: aquamarine;
+}
+/* .grid-content { */
+    /* grid-area: content; */
+    /* border: 1px dashed blue; */
+    /* display: grid; */
+    /* grid-template: */
+        /* [start] "title title title" [row2] */
+        /* [row2] "imagetlt image1 image2" [row3] */
+        /* [row3] "image3 . image4" [row4] */
+        /* [row4] "title-bottom title-bottom title-bottom" [row-end] / 1fr 2fr 1fr; */
+/* } */
+.title {
+    /* text-align: center; */
+    /* grid-area: title; */
+    background-color: yellow;
+    border: 1px dashed blue;
+}
+.grid-image1 {
+    /* text-align: center; */
+    /* grid-area: image1; */
+    border: 1px dashed blue;
+}
+.grid-image2 {
+    /* text-align: center; */
+    /* grid-area: image2; */
+    border: 1px dashed blue;
+}
+.grid-image3 {
+    /* text-align: center; */
+    /* grid-area: image3; */
+    border: 1px dashed blue;
+}
+.grid-image4 {
+    /* text-align: center; */
+    /* grid-area: image4; */
+    border: 1px dashed blue;
+}
+.grid-imagetlt {
+    /* text-align: center; */
+    grid-area: imagetlt;
+    border: 1px dashed blue;
+}
+.title-bottom {
+    /* text-align: center; */
+    /* grid-area: title-bottom; */
+    background-color: yellow;
+    border: 1px dashed blue;
+}
+.grid-footer {
+    grid-area: footer;
+    background-color: aqua;
+    border: 1px dashed blue;
+}
+
+/* * grid елементи можуть бути з неявною сіткою, у такому разі є методика їх систематизованого розміщення */
+.grid-content {
+    /* height: 150%; */
+    grid-area: content;
+    display: grid;
+    /* * для розміщування grid елементів можна користуватися такими властивостями */
+    /* todo grid-auto-rows: 200px; */
+    /* todo grid-auto-columns: 200px; */
+    /* також можна розміщувати за допоиогою властивості */
+    /* grid-auto-flow: row; */
+}
